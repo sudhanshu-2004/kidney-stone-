@@ -8,8 +8,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Leaf className="h-8 w-8 text-green-400" />
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_photo-flow-capture/artifacts/jgfs7yhm_IMG-20260106-WA0021.jpg"
+                alt="Ayurved Life Logo"
+                className="h-12 w-12 object-contain bg-white rounded-full p-1"
+              />
               <div>
                 <h3 className="text-xl font-bold">AYURVED LIFE</h3>
                 <p className="text-sm text-gray-400">The Soul of Ayurveda</p>

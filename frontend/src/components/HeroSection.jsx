@@ -44,7 +44,7 @@ const HeroSection = () => {
                 className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
                 onClick={scrollToForm}
               >
-                FREE डॉक्टर से बात कीजिए
+                FREE डॉक्टर से बात करें
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               
@@ -64,7 +64,7 @@ const HeroSection = () => {
                 <span className="bg-amber-400 text-amber-900 px-3 py-1 rounded-full text-sm font-bold">
                   FREE
                 </span>
-                Doctor Consultation - 100% आयुर्वेदिक
+                डॉक्टर से बात करें - 100% आयुर्वेदिक
               </p>
             </div>
           </div>

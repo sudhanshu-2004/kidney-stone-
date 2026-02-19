@@ -71,7 +71,7 @@ const ConsultationForm = () => {
           <Card className="border-4 border-white shadow-2xl bg-white">
             <CardHeader className="text-center bg-gradient-to-r from-amber-400 to-amber-500 -mt-8 mx-8 rounded-xl shadow-lg">
               <CardTitle className="text-2xl md:text-3xl font-bold text-gray-900 py-4">
-                🆓 FREE Doctor Consultation
+                🆓 FREE डॉक्टर से बात करें
               </CardTitle>
               <p className="text-gray-800 font-medium">
                 100% आयुर्वेदिक समाधान के लिए आज ही संपर्क करें
@@ -150,7 +150,7 @@ const ConsultationForm = () => {
                   ) : (
                     <>
                       <Phone className="mr-2 h-6 w-6" />
-                      अभी FREE Consultation बुक करें
+                      अभी FREE डॉक्टर से बात करें
                     </>
                   )}
                 </Button>

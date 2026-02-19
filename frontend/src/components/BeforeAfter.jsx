@@ -90,7 +90,7 @@ const BeforeAfter = () => {
           {/* CTA Section */}
           <div className="mt-12 text-center bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-8 text-white shadow-xl">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              FREE डॉक्टर से सलाह लें
+              FREE डॉक्टर से बात करें
             </h3>
             <p className="text-lg mb-6 opacity-90">
               नीचे क्लिक करें - नाम और मोबाइल नंबर डालें

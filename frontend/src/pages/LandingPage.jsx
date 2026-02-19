@@ -27,9 +27,13 @@ const LandingPage = () => {
     <div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-green-50">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <Leaf className="h-8 w-8 text-green-700" />
+        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <img 
+              src="https://customer-assets.emergentagent.com/job_photo-flow-capture/artifacts/jgfs7yhm_IMG-20260106-WA0021.jpg"
+              alt="Ayurved Life Logo"
+              className="h-16 w-16 object-contain"
+            />
             <div>
               <h1 className="text-xl font-bold text-green-800">AYURVED LIFE</h1>
               <p className="text-xs text-gray-600">The Soul of Ayurveda</p>
