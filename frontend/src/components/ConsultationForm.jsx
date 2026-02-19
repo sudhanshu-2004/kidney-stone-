@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
-import { Phone, User, MapPin, CheckCircle } from 'lucide-react';
+import { Phone, User, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
-import { submitConsultationRequest } from '../utils/mockApi';
+import { submitConsultationRequest } from '../utils/googleSheetsApi';
 
 const ConsultationForm = () => {
   const [formData, setFormData] = useState({
     name: '',
-    phone: '',
-    city: ''
+    phone: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -30,7 +29,7 @@ const ConsultationForm = () => {
     }
 
     if (formData.phone.length < 10) {
-      toast.error('कृपया सही फोन नंबर डालें');
+      toast.error('कृपया सही 10 अंकों का फोन नंबर डालें');
       return;
     }
 
@@ -44,7 +43,7 @@ const ConsultationForm = () => {
           duration: 5000,
         });
         
-        setFormData({ name: '', phone: '', city: '' });
+        setFormData({ name: '', phone: '' });
       }
     } catch (error) {
       toast.error('कुछ गलत हो गया। कृपया फिर से कोशिश करें।');
@@ -83,8 +82,8 @@ const ConsultationForm = () => {
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
                   <div className="text-sm text-gray-700 space-y-1">
-                    <p className="font-semibold text-green-800">✅ नीचे क्लिक करें</p>
-                    <p>✅ नाम और मोबाइल नंबर डालें</p>
+                    <p className="font-semibold text-green-800">✅ नीचे फॉर्म भरें</p>
+                    <p>✅ सिर्फ 2 चीजें: नाम और मोबाइल नंबर</p>
                     <p>✅ हमारे डॉक्टर आपको खुद कॉन्टेक्ट करेंगे</p>
                   </div>
                 </div>
@@ -102,7 +101,7 @@ const ConsultationForm = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="अपना पूरा नाम लिखें"
-                    className="h-12 text-lg border-2 border-gray-300 focus:border-green-500"
+                    className="h-14 text-lg border-2 border-gray-300 focus:border-green-500"
                     required
                   />
                 </div>
@@ -117,25 +116,11 @@ const ConsultationForm = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="10 अंकों का मोबाइल नंबर"
+                    placeholder="10 अंकों का मोबाइल नंबर (जैसे: 9876543210)"
                     maxLength="10"
-                    className="h-12 text-lg border-2 border-gray-300 focus:border-green-500"
+                    pattern="[0-9]{10}"
+                    className="h-14 text-lg border-2 border-gray-300 focus:border-green-500"
                     required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-                    <MapPin className="h-4 w-4" />
-                    शहर (वैकल्पिक)
-                  </label>
-                  <Input
-                    type="text"
-                    name="city"
-                    value={formData.city}
-                    onChange={handleChange}
-                    placeholder="आपका शहर"
-                    className="h-12 text-lg border-2 border-gray-300 focus:border-green-500"
                   />
                 </div>
 
