@@ -73,14 +73,14 @@ const LandingPage = () => {
         </div>
       </section>
 
+      {/* Before After - Moved up for better conversion */}
+      <BeforeAfter />
+
       {/* Symptoms Section */}
       <SymptomsSection />
 
       {/* Do's and Don'ts */}
       <DosAndDonts />
-
-      {/* Before After */}
-      <BeforeAfter />
 
       {/* Product Benefits */}
       <ProductBenefits />
