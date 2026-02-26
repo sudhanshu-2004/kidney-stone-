@@ -69,16 +69,43 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Image - Man facing kidney pain */}
+          {/* Right Image - Man experiencing severe pain */}
           <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-r from-red-200 to-orange-200 rounded-3xl blur-2xl opacity-30"></div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-red-200 to-orange-200 rounded-3xl blur-2xl opacity-40 animate-pulse"></div>
+            
+            {/* Main Pain Image */}
             <img 
-              src="https://customer-assets.emergentagent.com/job_8c28540a-1ce9-442f-93a2-00971cbc9631/artifacts/cplyujne_IMG-20260217-WA0004.jpg"
-              alt="Kidney Pain - Get Relief with Ayurvedic Treatment"
+              src="https://customer-assets.emergentagent.com/job_photo-flow-capture/artifacts/ax6zx0aq_WhatsApp%20Image%202026-02-26%20at%203.38.14%20PM.jpeg"
+              alt="किडनी दर्द से राहत - पथरी का इलाज"
               className="relative rounded-2xl shadow-2xl w-full object-cover hover:scale-105 transition-transform duration-300"
             />
-            <div className="absolute top-4 right-4 bg-red-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-pulse">
-              दर्द से राहत पाएं!
+            
+            {/* FREE Red Sticker - Top Right with Effects */}
+            <div className="absolute -top-4 -right-4 z-10">
+              <div className="relative">
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-red-500 rounded-full blur-xl opacity-60 animate-pulse"></div>
+                
+                {/* Main Sticker */}
+                <div className="relative bg-gradient-to-br from-red-600 via-red-500 to-red-700 text-white px-8 py-4 rounded-full shadow-2xl transform rotate-12 hover:rotate-0 transition-all duration-300 border-4 border-white animate-bounce">
+                  <div className="text-center">
+                    <p className="text-3xl font-black tracking-wider drop-shadow-lg">FREE</p>
+                    <p className="text-xs font-bold -mt-1">100% मुफ्त</p>
+                  </div>
+                  
+                  {/* Shine Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 animate-shine"></div>
+                </div>
+                
+                {/* Sparkle Elements */}
+                <div className="absolute -top-2 -left-2 text-yellow-300 text-2xl animate-spin-slow">✨</div>
+                <div className="absolute -bottom-2 -right-2 text-yellow-300 text-2xl animate-spin-slow" style={{animationDelay: '1s'}}>✨</div>
+              </div>
+            </div>
+            
+            {/* Pain Relief Badge - Bottom */}
+            <div className="absolute bottom-4 left-4 bg-red-600 text-white px-6 py-3 rounded-full font-bold text-base shadow-xl animate-pulse border-2 border-white">
+              दर्द से तुरंत राहत! 💊
             </div>
           </div>
         </div>
