@@ -27,12 +27,29 @@ const HeroSection = () => {
               100% प्राकृतिक समाधान
             </Badge>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-              किडनी में पथरी?
-              <span className="block text-green-700 mt-2">
-                दर्द बदाश्त से बाहर?
-              </span>
-            </h1>
+            <div className="flex items-center gap-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                किडनी में पथरी?
+                <span className="block text-green-700 mt-2">
+                  दर्द बदाश्त से बाहर?
+                </span>
+              </h1>
+              
+              {/* Kidney with Stone Image */}
+              <div className="hidden md:block relative flex-shrink-0">
+                <div className="absolute inset-0 bg-red-300 rounded-full blur-xl opacity-40 animate-pulse"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1715527498501-4eb81f7ce451?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwzfHxraWRuZXklMjBzdG9uZXN8ZW58MHx8fHwxNzcyMTAxMTI1fDA&ixlib=rb-4.1.0&q=85"
+                  alt="Kidney Stones Medical Illustration"
+                  className="relative w-32 h-32 lg:w-40 lg:h-40 object-contain drop-shadow-2xl animate-bounce"
+                  style={{animationDuration: '3s'}}
+                />
+                {/* Warning Indicator */}
+                <div className="absolute -bottom-2 -right-2 bg-red-600 text-white rounded-full p-2 shadow-lg animate-ping">
+                  <span className="text-xs font-bold">⚠️</span>
+                </div>
+              </div>
+            </div>
 
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
               बिना ऑपरेशन, आयुर्वेदिक तरीके से पाएं सहत
