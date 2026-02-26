@@ -69,14 +69,17 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Image */}
+          {/* Right Image - Man facing kidney pain */}
           <div className="relative">
-            <div className="absolute -inset-4 bg-gradient-to-r from-green-200 to-emerald-200 rounded-3xl blur-2xl opacity-30"></div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-red-200 to-orange-200 rounded-3xl blur-2xl opacity-30"></div>
             <img 
               src="https://customer-assets.emergentagent.com/job_8c28540a-1ce9-442f-93a2-00971cbc9631/artifacts/cplyujne_IMG-20260217-WA0004.jpg"
-              alt="Kidney Stone Ayurvedic Treatment"
-              className="relative rounded-2xl shadow-2xl w-full object-cover"
+              alt="Kidney Pain - Get Relief with Ayurvedic Treatment"
+              className="relative rounded-2xl shadow-2xl w-full object-cover hover:scale-105 transition-transform duration-300"
             />
+            <div className="absolute top-4 right-4 bg-red-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-pulse">
+              दर्द से राहत पाएं!
+            </div>
           </div>
         </div>
       </div>

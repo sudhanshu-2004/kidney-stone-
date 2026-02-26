@@ -39,9 +39,12 @@ const LandingPage = () => {
               <p className="text-xs text-gray-600">The Soul of Ayurveda</p>
             </div>
           </div>
-          <Button className="bg-green-600 hover:bg-green-700 text-white">
+          <Button 
+            className="bg-green-600 hover:bg-green-700 text-white"
+            onClick={() => document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             <Phone className="h-4 w-4 mr-2" />
-            अभी Call करें
+            FREE डॉक्टर से बात करें
           </Button>
         </div>
       </header>

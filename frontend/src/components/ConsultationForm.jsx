@@ -28,8 +28,8 @@ const ConsultationForm = () => {
       return;
     }
 
-    if (formData.phone.length < 10) {
-      toast.error('कृपया सही 10 अंकों का फोन नंबर डालें');
+    if (formData.phone.length !== 10) {
+      toast.error('कृपया 10 अंकों का मोबाइल नंबर डालें');
       return;
     }
 
@@ -39,11 +39,14 @@ const ConsultationForm = () => {
       const result = await submitConsultationRequest(formData);
       
       if (result.success) {
-        toast.success('धन्यवाद! हमारे डॉक्टर जल्द ही आपसे संपर्क करेंगे', {
+        toast.success('धन्यवाद! हमारे डॉक्टर जल्द ही आपसे संपर्क करेंगे ✅', {
           duration: 5000,
         });
         
         setFormData({ name: '', phone: '' });
+      } else {
+        // Show specific error from fake leads filter
+        toast.error(result.message || 'कुछ गलत हो गया');
       }
     } catch (error) {
       toast.error('कुछ गलत हो गया। कृपया फिर से कोशिश करें।');
@@ -100,10 +103,13 @@ const ConsultationForm = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="अपना पूरा नाम लिखें"
+                    placeholder="उदाहरण: राहुल कुमार"
                     className="h-14 text-lg border-2 border-gray-300 focus:border-green-500"
+                    autoComplete="name"
+                    minLength="3"
                     required
                   />
+                  <p className="text-xs text-gray-500">कृपया अपना असली नाम डालें</p>
                 </div>
 
                 <div className="space-y-2">
@@ -116,12 +122,17 @@ const ConsultationForm = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="10 अंकों का मोबाइल नंबर (जैसे: 9876543210)"
+                    placeholder="उदाहरण: 9876543210"
                     maxLength="10"
-                    pattern="[0-9]{10}"
+                    pattern="[6-9][0-9]{9}"
                     className="h-14 text-lg border-2 border-gray-300 focus:border-green-500"
+                    autoComplete="tel"
+                    inputMode="numeric"
                     required
                   />
+                  <p className="text-xs text-gray-500">
+                    10 अंकों का Indian mobile number (6-9 से शुरू)
+                  </p>
                 </div>
 
                 <Button 
