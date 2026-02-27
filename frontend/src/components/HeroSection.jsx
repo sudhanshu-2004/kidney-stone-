@@ -36,11 +36,10 @@ const HeroSection = () => {
               </h1>
               
               {/* Kidney with Stone Image */}
-              <div className="hidden md:block relative flex-shrink-0">
+              <div className="block relative flex-shrink-0 mt-6">
                 <div className="absolute inset-0 bg-red-300 rounded-full blur-xl opacity-40 animate-pulse"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1715527498501-4eb81f7ce451?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwzfHxraWRuZXklMjBzdG9uZXN8ZW58MHx8fHwxNzcyMTAxMTI1fDA&ixlib=rb-4.1.0&q=85"
-                  alt="Kidney Stones Medical Illustration"
+                  src="/stone.png"
                   className="relative w-32 h-32 lg:w-40 lg:h-40 object-contain drop-shadow-2xl animate-bounce"
                   style={{animationDuration: '3s'}}
                 />
