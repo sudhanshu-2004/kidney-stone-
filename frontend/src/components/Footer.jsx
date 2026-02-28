@@ -8,16 +8,9 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_photo-flow-capture/artifacts/jgfs7yhm_IMG-20260106-WA0021.jpg"
-                alt="Ayurved Life Logo"
-                className="h-12 w-12 object-contain bg-white rounded-full p-1"
-              />
-              <div>
-                <h3 className="text-xl font-bold">AYURVED LIFE</h3>
-                <p className="text-sm text-gray-400">The Soul of Ayurveda</p>
-              </div>
+            <div className="mb-4">
+              <h3 className="text-xl font-bold">AYURVED LIFE</h3>
+              <p className="text-sm text-gray-400">The Soul of Ayurveda</p>
             </div>
             <p className="text-gray-300 leading-relaxed">
               प्राकृतिक और आयुर्वेदिक तरीके से किडनी की पथरी का समाधान। 

@@ -39,7 +39,7 @@ const HeroSection = () => {
               <div className="block relative flex-shrink-0 mt-6">
                 <div className="absolute inset-0 bg-red-300 rounded-full blur-xl opacity-40 animate-pulse"></div>
                 <img 
-                  src="/stone.png"
+                  src="/stone.jpg.jpeg"
                   className="relative w-32 h-32 lg:w-40 lg:h-40 object-contain drop-shadow-2xl animate-bounce"
                   style={{animationDuration: '3s'}}
                 />

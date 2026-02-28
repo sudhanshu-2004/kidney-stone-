@@ -9,7 +9,7 @@
 // 4. Set "Who has access" = Anyone
 // 5. Click "Deploy" and copy the Web App URL
 
-const GOOGLE_SHEETS_WEB_APP_URL = 'YOUR_WEB_APP_URL_HERE'; // Replace this after deployment
+const GOOGLE_SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwbXbpwa_sI7OtEUICAiF_c2wyzhkfMkkDgnGaOFpun7d798vW7WiN7F4O2ognHhbA/exec';
 
 // Fake Leads Filter - Phone Number Validation
 const isValidIndianMobile = (phone) => {
@@ -99,17 +99,21 @@ export const submitConsultationRequest = async (formData) => {
     }
 
     // Send data to Google Sheets
+    // Use form-encoded data to ensure Apps Script receives parameters reliably
+    const payload = new URLSearchParams({
+      name: formData.name.trim(),
+      phone: formData.phone.trim(),
+      mobile: formData.phone.trim(),
+      timestamp: new Date().toISOString()
+    });
+
     const response = await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
       method: 'POST',
       mode: 'no-cors', // Important for Google Apps Script
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
       },
-      body: JSON.stringify({
-        name: formData.name.trim(),
-        phone: formData.phone.trim(),
-        timestamp: new Date().toISOString()
-      })
+      body: payload.toString()
     });
 
     // Note: no-cors mode means we can't read the response
