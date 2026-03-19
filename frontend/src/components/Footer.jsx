@@ -51,15 +51,67 @@ const Footer = () => {
 
         <div className="border-t border-gray-700 pt-6 text-center">
           <p className="text-gray-400 text-sm">
-            © 2026 Ayurved Life. All rights reserved. | 
+            © 2026 Ayurved Life. All rights reserved. |
             <span className="text-green-400"> 100% आयुर्वेदिक उत्पाद</span>
           </p>
           <p className="text-xs text-gray-500 mt-2">
             Disclaimer: परिणाम व्यक्ति-दर-व्यक्ति भिन्न हो सकते हैं। किसी भी उपचार से पहले चिकित्सक से परामर्श अवश्य लें।
           </p>
-          <p className="text-xs text-gray-500 mt-3 border-t border-gray-800 pt-3">
-            Website created by <span className="text-green-400 font-semibold">Sudhanshu Kumar</span> © 2026
-          </p>
+        </div>
+      </div>
+
+      {/* Developer Credit Strip */}
+      <div
+        style={{
+          background: 'linear-gradient(135deg, #0f172a 0%, #1e3a2f 40%, #14532d 70%, #0f172a 100%)',
+          borderTop: '1px solid rgba(74, 222, 128, 0.25)',
+          marginTop: '2rem',
+          padding: '0.85rem 1rem',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '800px',
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.5rem',
+            flexWrap: 'wrap',
+          }}
+        >
+          <span style={{ fontSize: '0.7rem', color: '#6b7280', letterSpacing: '0.05em' }}>
+            ✦
+          </span>
+          <span style={{ fontSize: '0.75rem', color: '#9ca3af', letterSpacing: '0.04em' }}>
+            Website Designed &amp; Developed by
+          </span>
+          <span
+            style={{
+              fontSize: '0.85rem',
+              fontWeight: '800',
+              letterSpacing: '0.15em',
+              background: 'linear-gradient(90deg, #4ade80, #86efac, #4ade80)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              textTransform: 'uppercase',
+            }}
+          >
+            SUDHANSHU KUMAR
+          </span>
+          <span
+            style={{
+              fontSize: '0.75rem',
+              color: 'rgba(74, 222, 128, 0.5)',
+              letterSpacing: '0.04em',
+            }}
+          >
+            © 2026
+          </span>
+          <span style={{ fontSize: '0.7rem', color: '#6b7280', letterSpacing: '0.05em' }}>
+            ✦
+          </span>
         </div>
       </div>
     </footer>
