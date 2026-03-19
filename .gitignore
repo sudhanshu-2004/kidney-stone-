@@ -6,8 +6,7 @@
 
 # Dependencies
 node_modules/
-/node_modules
-/.pnp
+.pnp
 .pnp.js
 .yarn/install-state.gz
 .yarn/*
@@ -28,12 +27,13 @@ next-env.d.ts
 # Production builds
 /build
 dist/
-dist
 
-# Environment files (comprehensive coverage)
-
-*token.json*
-*credentials.json*
+# Environment files
+.env
+.env.*
+*.env
+*.env.*
+backend/.env
 
 # Logs and debug files
 npm-debug.log*
@@ -41,14 +41,18 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 dump.rdb
+*.log
 
 # System files
 .DS_Store
 *.pem
+Thumbs.db
 
 # Python
 __pycache__/
-*pyc*
+*.pyc
+*.pyo
+*.pyd
 venv/
 .venv/
 
@@ -76,12 +80,9 @@ agenthub/agents/youtube/db
 # Build caches
 .cache/
 
-# Mobile development
-android-sdk/ -e 
-# Environment files
-*.env
-*.env.*
--e 
-# Environment files
-*.env
-*.env.*
+# Token/credentials
+*token.json*
+*credentials.json*
+
+# Test reports
+test_reports/

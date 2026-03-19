@@ -57,6 +57,9 @@ const Footer = () => {
           <p className="text-xs text-gray-500 mt-2">
             Disclaimer: परिणाम व्यक्ति-दर-व्यक्ति भिन्न हो सकते हैं। किसी भी उपचार से पहले चिकित्सक से परामर्श अवश्य लें।
           </p>
+          <p className="text-xs text-gray-500 mt-3 border-t border-gray-800 pt-3">
+            Website created by <span className="text-green-400 font-semibold">Sudhanshu Kumar</span> © 2026
+          </p>
         </div>
       </div>
     </footer>

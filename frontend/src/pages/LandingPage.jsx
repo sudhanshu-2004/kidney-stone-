@@ -30,9 +30,9 @@ const LandingPage = () => {
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img 
-              src="https://customer-assets.emergentagent.com/job_photo-flow-capture/artifacts/jgfs7yhm_IMG-20260106-WA0021.jpg"
+              src="/logo.jpg"
               alt="Ayurved Life Logo"
-              className="h-16 w-16 object-contain"
+              className="h-16 w-16 object-contain mix-blend-multiply"
             />
             <div>
               <h1 className="text-xl font-bold text-green-800">AYURVED LIFE</h1>

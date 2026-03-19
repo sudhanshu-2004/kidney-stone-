@@ -4,7 +4,7 @@ import { Input } from './ui/input';
 import { Button } from './ui/button';
 import { Phone, User, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
-import { submitConsultationRequest } from '../utils/googleSheetsApi';
+import { submitConsultationRequest } from '../utils/api';
 
 const ConsultationForm = () => {
   const [formData, setFormData] = useState({

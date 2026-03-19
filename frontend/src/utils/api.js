@@ -1,15 +1,5 @@
-// Google Sheets API Integration
-// NOTE: User needs to add the Web App URL from Google Apps Script deployment
-
-// IMPORTANT: After deploying the Google Apps Script, replace this URL
-// Steps to get URL:
-// 1. In Google Apps Script, click "Deploy" → "New deployment"
-// 2. Select "Web app"
-// 3. Set "Execute as" = Me
-// 4. Set "Who has access" = Anyone
-// 5. Click "Deploy" and copy the Web App URL
-
-const GOOGLE_SHEETS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwbXbpwa_sI7OtEUICAiF_c2wyzhkfMkkDgnGaOFpun7d798vW7WiN7F4O2ognHhbA/exec';
+// Supabase Direct API Integration
+import { supabase } from '../lib/supabase';
 
 // Fake Leads Filter - Phone Number Validation
 const isValidIndianMobile = (phone) => {
@@ -74,73 +64,45 @@ export const submitConsultationRequest = async (formData) => {
       };
     }
 
-    // Check if URL is configured
-    if (GOOGLE_SHEETS_WEB_APP_URL === 'YOUR_WEB_APP_URL_HERE') {
-      console.warn('Google Sheets Web App URL not configured. Saving locally only.');
-      
-      // Save locally
-      const existingData = JSON.parse(localStorage.getItem('consultationRequests') || '[]');
-      const newRequest = {
-        id: Date.now(),
-        ...formData,
-        timestamp: new Date().toISOString(),
-        status: 'pending'
-      };
-      
-      existingData.push(newRequest);
-      localStorage.setItem('consultationRequests', JSON.stringify(existingData));
+    // Insert directly into Supabase via API key
+    const { data, error } = await supabase
+      .from('leads')
+      .insert([
+        {
+          name: formData.name.trim(),
+          phone: formData.phone.trim(),
+          timestamp: new Date().toISOString()
+        }
+      ])
+      .select();
 
-      return {
-        success: true,
-        message: 'Consultation request saved locally',
-        data: newRequest,
-        warning: 'Google Sheets not configured'
-      };
+    if (error) {
+      console.error('Supabase error:', error);
+      throw new Error(error.message);
     }
 
-    // Send data to Google Sheets
-    // Use form-encoded data to ensure Apps Script receives parameters reliably
-    const payload = new URLSearchParams({
-      name: formData.name.trim(),
-      phone: formData.phone.trim(),
-      mobile: formData.phone.trim(),
-      timestamp: new Date().toISOString()
-    });
+    console.log('✅ Form submitted to Supabase:', data);
 
-    const response = await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
-      method: 'POST',
-      mode: 'no-cors', // Important for Google Apps Script
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-      },
-      body: payload.toString()
-    });
-
-    // Note: no-cors mode means we can't read the response
-    // But the request will still work
-    console.log('✅ Form submitted to Google Sheets:', formData);
-    
     // Also save locally as backup
     const existingData = JSON.parse(localStorage.getItem('consultationRequests') || '[]');
     const newRequest = {
       id: Date.now(),
       ...formData,
       timestamp: new Date().toISOString(),
-      status: 'sent_to_sheets'
+      status: 'saved_to_supabase'
     };
-    
     existingData.push(newRequest);
     localStorage.setItem('consultationRequests', JSON.stringify(existingData));
 
     return {
       success: true,
       message: 'Consultation request submitted successfully',
-      data: newRequest
+      data: data?.[0] || newRequest
     };
   } catch (error) {
-    console.error('Error submitting to Google Sheets:', error);
-    
-    // If Google Sheets fails, still save locally
+    console.error('Error submitting to Supabase:', error);
+
+    // If Supabase fails, still save locally
     const existingData = JSON.parse(localStorage.getItem('consultationRequests') || '[]');
     const newRequest = {
       id: Date.now(),
@@ -148,14 +110,13 @@ export const submitConsultationRequest = async (formData) => {
       timestamp: new Date().toISOString(),
       status: 'pending'
     };
-    
     existingData.push(newRequest);
     localStorage.setItem('consultationRequests', JSON.stringify(existingData));
-    
+
     return {
-      success: true,
-      message: 'Request saved locally',
-      data: newRequest
+      success: false,
+      message: 'कुछ गलत हो गया। कृपया फिर से कोशिश करें।',
+      error: error.message
     };
   }
 };
