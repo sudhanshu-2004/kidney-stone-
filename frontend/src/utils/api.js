@@ -64,11 +64,24 @@ export const submitConsultationRequest = async (formData) => {
       };
     }
 
+    // Simple UUID generator (fallback for older browsers without crypto.randomUUID)
+    const generateUUID = () => {
+      if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+        return crypto.randomUUID();
+      }
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    };
+
     // Insert directly into Supabase via API key
     const { data, error } = await supabase
       .from('leads')
       .insert([
         {
+          id: generateUUID(),
           name: formData.name.trim(),
           phone: formData.phone.trim(),
           timestamp: new Date().toISOString()
@@ -115,7 +128,7 @@ export const submitConsultationRequest = async (formData) => {
 
     return {
       success: false,
-      message: 'कुछ गलत हो गया। कृपया फिर से कोशिश करें।',
+      message: `Error: ${error.message || 'Connection failed'}`,
       error: error.message
     };
   }
