@@ -111,15 +111,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* WhatsApp floating button */}
-      <a
-        href="tel:+919911449683"
-        className="whatsapp-btn"
-        aria-label="Call us"
-        title="Call Now"
-      >
-        📞
-      </a>
     </section>
   );
 };
