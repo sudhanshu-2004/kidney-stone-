@@ -8,6 +8,7 @@ import ProductBenefits from '../components/ProductBenefits';
 import ConsultationForm from '../components/ConsultationForm';
 import Footer from '../components/Footer';
 import FloatingContact from '../components/FloatingContact';
+import CompulsoryPopup from '../components/CompulsoryPopup';
 
 const PHONE = '9911449683';
 const WA_LINK = `https://wa.me/91${PHONE}?text=${encodeURIComponent('नमस्ते! मुझे किडनी की पथरी के बारे में जानकारी चाहिए।')}`;
@@ -140,6 +141,7 @@ const LandingPage = () => {
 
       {/* ── Speed-Dial FAB ── */}
       <FloatingContact />
+      <CompulsoryPopup />
     </div>
   );
 };
